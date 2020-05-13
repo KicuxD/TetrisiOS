@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  Tetris
 //
-//  Created by Dawid on 12/05/2020.
-//  Copyright © 2020 Dawid. All rights reserved.
+//  Created by Dawid Zając & Maciej Fanok on 12/05/2020.
+//  Copyright © 2020 Dawid Zając & Maciej Fanok. All rights reserved.
 //
 
 import UIKit

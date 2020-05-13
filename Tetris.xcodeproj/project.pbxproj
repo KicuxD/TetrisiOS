@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01B1D275246C15C000FAB7F8 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1D274246C15C000FAB7F8 /* GameModel.swift */; };
 		6FC23556246B76D400E7D187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC23555246B76D400E7D187 /* AppDelegate.swift */; };
 		6FC23558246B76D400E7D187 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC23557246B76D400E7D187 /* SceneDelegate.swift */; };
 		6FC2355A246B76D400E7D187 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC23559246B76D400E7D187 /* ContentView.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01B1D274246C15C000FAB7F8 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		6FC23552246B76D400E7D187 /* Tetris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tetris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FC23555246B76D400E7D187 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6FC23557246B76D400E7D187 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01B1D273246C15A000FAB7F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				01B1D274246C15C000FAB7F8 /* GameModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		6FC23549246B76D400E7D187 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +113,7 @@
 		6FC23554246B76D400E7D187 /* Tetris */ = {
 			isa = PBXGroup;
 			children = (
+				01B1D273246C15A000FAB7F8 /* Model */,
 				6FC23585246B771800E7D187 /* View */,
 				6FC23588246B777700E7D187 /* ViewModel */,
 				6FC23555246B76D400E7D187 /* AppDelegate.swift */,
@@ -294,6 +305,7 @@
 				6FC23558246B76D400E7D187 /* SceneDelegate.swift in Sources */,
 				6FC2358A246B779400E7D187 /* TetrisViewModel.swift in Sources */,
 				6FC2355A246B76D400E7D187 /* ContentView.swift in Sources */,
+				01B1D275246C15C000FAB7F8 /* GameModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

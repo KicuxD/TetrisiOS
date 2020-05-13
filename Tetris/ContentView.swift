@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  Tetris iOS
 //
-//  Created by Dawid on 12/05/2020.
+//  Created by Dawid Zając & Maciej Fanok on 12/05/2020.
 //  Copyright © 2020 Projekt. All rights reserved.
 //
 
