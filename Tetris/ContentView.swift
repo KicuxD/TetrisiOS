@@ -1,16 +1,16 @@
 //
 //  ContentView.swift
-//  Tetris
+//  Tetris iOS
 //
 //  Created by Dawid on 12/05/2020.
-//  Copyright © 2020 Dawid. All rights reserved.
+//  Copyright © 2020 Projekt. All rights reserved.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        TetrisView()
     }
 }
 

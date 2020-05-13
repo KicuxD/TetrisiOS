@@ -15,6 +15,8 @@
 		6FC23562246B76D600E7D187 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FC23560246B76D600E7D187 /* LaunchScreen.storyboard */; };
 		6FC2356D246B76D600E7D187 /* TetrisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC2356C246B76D600E7D187 /* TetrisTests.swift */; };
 		6FC23578246B76D600E7D187 /* TetrisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC23577246B76D600E7D187 /* TetrisUITests.swift */; };
+		6FC23587246B774900E7D187 /* TetrisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC23586246B774900E7D187 /* TetrisView.swift */; };
+		6FC2358A246B779400E7D187 /* TetrisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC23589246B779400E7D187 /* TetrisViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		6FC23573246B76D600E7D187 /* TetrisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TetrisUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FC23577246B76D600E7D187 /* TetrisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisUITests.swift; sourceTree = "<group>"; };
 		6FC23579246B76D600E7D187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6FC23586246B774900E7D187 /* TetrisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisView.swift; sourceTree = "<group>"; };
+		6FC23589246B779400E7D187 /* TetrisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 		6FC23554246B76D400E7D187 /* Tetris */ = {
 			isa = PBXGroup;
 			children = (
+				6FC23585246B771800E7D187 /* View */,
+				6FC23588246B777700E7D187 /* ViewModel */,
 				6FC23555246B76D400E7D187 /* AppDelegate.swift */,
 				6FC23557246B76D400E7D187 /* SceneDelegate.swift */,
 				6FC23559246B76D400E7D187 /* ContentView.swift */,
@@ -134,6 +140,22 @@
 				6FC23579246B76D600E7D187 /* Info.plist */,
 			);
 			path = TetrisUITests;
+			sourceTree = "<group>";
+		};
+		6FC23585246B771800E7D187 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6FC23586246B774900E7D187 /* TetrisView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6FC23588246B777700E7D187 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6FC23589246B779400E7D187 /* TetrisViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +290,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FC23556246B76D400E7D187 /* AppDelegate.swift in Sources */,
+				6FC23587246B774900E7D187 /* TetrisView.swift in Sources */,
 				6FC23558246B76D400E7D187 /* SceneDelegate.swift in Sources */,
+				6FC2358A246B779400E7D187 /* TetrisViewModel.swift in Sources */,
 				6FC2355A246B76D400E7D187 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
