@@ -16,14 +16,13 @@ class GameModel: ObservableObject {
     
     var timer: Timer?
     var speed: Double
-    
     //initializer
     init(numRows: Int = 23, numColumns: Int = 10) {
         self.numRows = numRows
         self.numColumns = numColumns
         
         gameBoard = Array(repeating: Array(repeating: nil, count: numRows), count: numColumns)
-        speed = 0.5
+        speed = 0.1
         resumeGame()
     }
     
@@ -46,15 +45,8 @@ class GameModel: ObservableObject {
     }
     //silnik do blokow
     func Engine(timer: Timer) {
-        // sprawdzenie czy mozna wyczyscic jakas linie
-        
-        if clearLine() {
-            print("linia wyczyszczona")
-            return
-        }
-        
         //stworzenie nowego bloku jesli jest taka potrzeba
-        guard tetrisElement != nil else {
+        guard let currentTetrisElement = tetrisElement else {
             print("Tworzenie nowego bloku")
             tetrisElement = TetrisElement.createNewBlock(numRows: numRows, numColumns: numColumns)
             if !isElementValid(testTetrisElement: tetrisElement!) {
@@ -63,43 +55,16 @@ class GameModel: ObservableObject {
             }
             return
         }
-        
         //zajecie sie blokiem idacym w dol
-        if moveElementDown() {
+        let newTetrisElement = currentTetrisElement.moveBy(row: -1, column: 0)
+        if isElementValid(testTetrisElement: newTetrisElement) {
         print("Przesuniecie bloku w dol")
+        tetrisElement = newTetrisElement
         return
         }
-        
         //sprawdzenie czy potrzebujemy postawic blok
         print("Postawienie bloku")
         placeTetrisElement()
-    }
-    
-    func dropElement() {
-        while (moveElementDown()) { }
-    }
-    
-    func moveElementRight() -> Bool {
-        return moveElement(rowOffset: 0, columntOffset: 1)
-    }
-    
-    func moveElementLeft() -> Bool {
-        return moveElement(rowOffset: 0, columntOffset: -1)
-    }
-    
-    func moveElementDown() -> Bool {
-        return moveElement(rowOffset: -1, columntOffset: 0)
-    }
-    
-    func moveElement (rowOffset: Int, columntOffset: Int) -> Bool {
-        guard let currentTetrisElement = tetrisElement else {return false}
-        
-        let newTetrisElement = currentTetrisElement.moveBy(row: rowOffset, column: columntOffset)
-        if isElementValid(testTetrisElement: newTetrisElement) {
-        tetrisElement = newTetrisElement
-        return true
-        }
-        return false
     }
     
     func isElementValid(testTetrisElement: TetrisElement) -> Bool {
@@ -130,31 +95,6 @@ class GameModel: ObservableObject {
             gameBoard[column][row] = GameBlock(blockType: currentTetrisElement.blockType)
         }
         tetrisElement = nil
-    }
-    
-    func clearLine() -> Bool {
-        var newBoard: [[GameBlock?]] = Array(repeating: Array(repeating: nil, count: numRows), count: numColumns)
-        var boardUpdated = false
-        var nextRowToCopy = 0
-        
-        for row in 0...numRows-1 {
-            var clearLine = true
-            for column in 0...numColumns-1 {
-                clearLine = clearLine && gameBoard[column][row] != nil
-            }
-            if !clearLine {
-                for column in 0...numColumns-1 {
-                    newBoard[column][nextRowToCopy] = gameBoard[column][row]
-                }
-                nextRowToCopy += 1
-            }
-            boardUpdated = boardUpdated || clearLine
-        }
-        
-        if boardUpdated {
-            gameBoard = newBoard
-        }
-        return boardUpdated
     }
 }
 
