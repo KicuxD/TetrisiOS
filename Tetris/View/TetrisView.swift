@@ -24,7 +24,7 @@ struct TetrisView: View {
         let blocksize = min(boundingRect.width/CGFloat(columns), boundingRect.height/CGFloat(rows))
         //padding
         let xoffset = (boundingRect.width - blocksize*CGFloat(columns))/2
-        //vertical padding
+        //vertical  padding
         let yoffset = (boundingRect.height - blocksize*CGFloat(rows))/2
         let gameBoard = self.tetris.gameBoard
         
