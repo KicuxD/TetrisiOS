@@ -15,7 +15,8 @@ struct TetrisView: View {
         GeometryReader {(geometry: GeometryProxy) in
             self.drawBoard(boundingRect: geometry.size)
         }
-        .gesture(tetris.getGesture())
+        .gesture(tetris.getMoveGesture())
+        .gesture(tetris.getRotateGesture())
     }
     
     func drawBoard(boundingRect: CGSize) -> some View {
@@ -38,9 +39,6 @@ struct TetrisView: View {
                     path.addRect(rect)
                 }
                 .fill(gameBoard[column][row].color)
-                .onTapGesture {
-                    self.tetris.squareClicked(row: row, column: column)
-                }
             }
         }
     }
