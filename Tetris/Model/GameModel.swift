@@ -35,6 +35,7 @@ class GameModel: ObservableObject {
     func pauseGame() {
         timer?.invalidate()
     }
+    
     //silnik do blokow
     func Engine(timer: Timer) {
         // sprawdzenie czy mozna wyczyscic jakas linie
@@ -61,7 +62,7 @@ class GameModel: ObservableObject {
         return
         }
         
-        //sprawdzenie czy potrzebujemy postawic blok
+        //Postawienie bloku
         print("Postawienie bloku")
         placeTetrisElement()
     }
@@ -241,6 +242,7 @@ struct TetrisElement {
                     [BlockLocation(row: 1, column: 0), BlockLocation(row: 0, column: 0), BlockLocation(row: 0, column: -1), BlockLocation(row: -1, column: -1)]]
         }
     }
+    
     static func createNewBlock(numRows: Int, numColumns: Int) -> TetrisElement {
         let blockType = BlockType.allCases.randomElement()!
         
@@ -252,25 +254,25 @@ struct TetrisElement {
         let origin = BlockLocation(row: numRows - 1 - maxRow, column: (numColumns-1)/2)
         return TetrisElement(origin: origin, blockType: blockType, rotation: 0)
     }
-}
-    static func getKicks(blockType: BlockType, rotation: Int, clockwise: Bool) -> [BlockLocation] {
-        let rotationCount = getAllBlocks(blockType: blockType).count
-        
-        var index = rotation % rotationCount
-        if index < 0 { index += rotationCount }
-        
-        var kicks = getAllKicks(blockType: blockType)[index]
-        if !clockwise {
-            var counterKicks: [BlockLocation] = []
-            for kick in kicks {
-                counterKicks.append(BlockLocation(row: -1 * kick.row, column: -1 * kick.column))
-            }
-            kicks = counterKicks
-        }
-        return kicks
-    }
 
-    static func getAllKicks(blockType: BlockType) -> [[BlockLocation]] {
+    static func getKicks(blockType: BlockType, rotation: Int, clockwise: Bool) -> [BlockLocation] {
+        let rotationCount = getAllKicks(blockType: blockType).count
+            
+            var index = rotation % rotationCount
+            if index < 0 { index += rotationCount }
+            
+            var kicks = getAllKicks(blockType: blockType)[index]
+            if !clockwise {
+                var counterKicks: [BlockLocation] = []
+                for kick in kicks {
+                    counterKicks.append(BlockLocation(row: -1 * kick.row, column: -1 * kick.column))
+                }
+                kicks = counterKicks
+            }
+            return kicks
+        }
+
+static func getAllKicks(blockType: BlockType) -> [[BlockLocation]] {
     switch blockType {
         case .o:
             return [[BlockLocation(row: 0, column: 0)]]
@@ -292,4 +294,5 @@ struct TetrisElement {
 struct BlockLocation {
     var row: Int
     var column: Int
+}
 }
